@@ -1,0 +1,31 @@
+{
+  "name": "julio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhoOisOdis/v_git.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhoOisOdis/v_git/issues"
+  },
+  "homepage": "https://github.com/WhoOisOdis/v_git#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "browser-sync": "^2.8.2",
+    "del": "^1.2.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-uglify": "^1.4.0",
+    "gulp-rename": "^1.2.2"
+  },
+  "description": ""
+}

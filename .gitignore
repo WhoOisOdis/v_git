@@ -39,3 +39,4 @@ Thumbs.db
 #   BUILD SYSTEMS  	# 
 #####################
 bower_components/
+node_modules/
