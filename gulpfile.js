@@ -8,9 +8,13 @@ var jade = require('gulp-jade');
 var jshint = require('gulp-jshint');
 var jsHintStylish = require('jshint-stylish');
 var browserSync = require('browser-sync');
+var less = require('gulp-less');
 // //////////////////////
 // Scripts Task
 // //////////////////////
+gulp.task('javascript', function() {
+	gulp.src('SRC/js/*.js').pipe(gulp.dest('target/js'));
+});
 
 gulp.task('jade', function() {
 	// WE LEFT OFF TRYING TO FIND A WAY TO PRETTIFY THE OUT OF THE HTML, SPITS OUT JADE FILES IN ONE LONG LINE ON HTML
@@ -23,8 +27,12 @@ gulp.task('lint', function() {
 	return gulp.src('SRC/js/*.js').pipe(jshint()).pipe(jshint.reporter(jsHintStylish));
 });
 
+gulp.task('lessCompile', function() {
+	gulp.src('SRC/less/*.less').pipe(less()).pipe(gulp.dest('target/css'));
+});
 
-gulp.task('server', function() {
+
+gulp.task('server',['jade', 'lessCompile', 'javascript'], function() {
 	browserSync({
 		server: {
 			baseDir: './target/html/'
@@ -34,6 +42,7 @@ gulp.task('server', function() {
 	});
 	// the files property is the same as setting a watcher to execute the reloadServer task, much more efficient.
 	gulp.watch('SRC/jade/*.jade', ['jade', 'lint']);
+	gulp.watch('SRC/less/*.less', ['lessCompile']);
 	//gulp.watch('target/html/*.html', ['reloadServer']);
 });
 
